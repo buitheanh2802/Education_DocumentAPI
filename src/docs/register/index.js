@@ -48,16 +48,22 @@ const register = {
     
                 ],
                 responses: {
-                    200: {
+                    "200:DONE": {
                         description: "status: 200 => Tạo thành công",
                         schema: {
                             $ref: "#/definitions/register200"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
                     },
-                    400: {
+                    "400:ERROR": {
                         description: "status: 400 => Tạo thất bại",
                         schema: {
                             $ref: "#/definitions/register400"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                        }
+                    },
+                    "400:ERROR_VALIDATE": {
+                        description: "status: 400 => Validate dữ liệu body thất bại",
+                        schema: {
+                            $ref: "#/definitions/registerBODY"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
                     }
                 }
@@ -94,6 +100,21 @@ const register = {
                     type: "array",
                     example : [
                         'ERROR_SAVE'
+                    ]   
+                },
+                status: {
+                    type: "boolean",
+                    example : false    
+                }
+            }
+        },
+        registerBODY: {            
+            type: "object",       
+            properties: {          
+                message: {               
+                    type: "array",
+                    example : [
+                        'INVALID_DATA'
                     ]   
                 },
                 status: {
