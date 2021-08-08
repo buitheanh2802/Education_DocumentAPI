@@ -61,13 +61,13 @@ var spec =
                         },
                         "description": "Tên đăng nhập của người dùng"
                     }
-                    
+
                 ],
                 responses: {
                     200: {
                         description: "status: 200 CREATED",
                         schema: {
-                            $ref: "#/definitions/admin"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                            $ref: "#/definitions/register200"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
                     },
                 }
@@ -92,15 +92,7 @@ var spec =
                         },
                         "description": "id của tài khoản admin"
                     }
-                ],
-                responses: {
-                    200: {                                     // Mã trả về 200
-                        description: "Lấy dữ liệu thành công",    // Mô tả kết quả trả về
-                        schema: {
-                            $ref: "#/definitions/admin"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
-                        }
-                    },
-                }
+                ]
             },
             put: {
                 tags: ["admin"],
@@ -149,31 +141,24 @@ var spec =
         }
     },
     definitions: {            // Thông tin các đối tượng sẽ trả về
-        admin: {                 // Tên đối tượng
+        register200: {                 // Tên đối tượng
             type: "object",         // Loại đối tượng là object
             properties: {           // Các thuộc tính của đối tượng
-                id: {                  // Tên thuộc tính
-                    type: "integer"    // Loại dữ liệu là số nguyên
+                message: {                  // Tên thuộc tính
+                    type: "array",
+                    example : "[]"    // Loại dữ liệu là số nguyên
                 },
-                username: {
-                    type: "string"     // Loại dữ liệu là chuỗi
+                status: {
+                    type: "boolean",
+                    example : true     // Loại dữ liệu là chuỗi
                 },
-                password: {
-                    type: "string"
-                }
-            }
-        },
-        registerResponse: {                 // Tên đối tượng
-            type: "object",         // Loại đối tượng là object
-            properties: {           // Các thuộc tính của đối tượng
-                id: {                  // Tên thuộc tính
-                    type: "integer"    // Loại dữ liệu là số nguyên
-                },
-                username: {
-                    type: "string"     // Loại dữ liệu là chuỗi
-                },
-                password: {
-                    type: "string"
+                data: {
+                    type: "string",
+                    example : {
+                        _id : "ID user register",
+                        username : "username",
+                        email : "email"
+                    }
                 }
             }
         }
