@@ -71,7 +71,8 @@ const feedback = {
                 message: {                  // Tên thuộc tính
                     type: "array",
                     example : [
-                        'ERROR_SERVER'
+                        'ERROR_SERVER',
+                        'err.message'
                     ]    // Loại dữ liệu là số nguyên
                 },
                 status: {
