@@ -61,6 +61,7 @@ var spec =
                         },
                         "description": "Tên đăng nhập của người dùng"
                     }
+                    
                 ],
                 responses: {
                     200: {
