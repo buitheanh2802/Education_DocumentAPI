@@ -9,7 +9,11 @@ module.exports = (env,argv) => {
             publicPath : '/',
             environment : {
                 const : false,
-                destructuring : false
+                destructuring : false,
+                forOf : false,
+                module : false,
+                dynamicImport : false,
+                
             },
             path : path.resolve(__dirname,'public')
         },
