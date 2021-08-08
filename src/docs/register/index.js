@@ -5,7 +5,7 @@ const register = {
                 tags: ["Authentication"],
                 summary: "Tạo tài khoản user",
                 description: "",
-                operationId: "createNewAdminAccount",
+                operationId: "register",
                 consumes: ["application/json"],    // Loại dữ liệu gửi đi
                 produces: ["application/json"],       // Loại dữ liệu trả về
                 parameters: [               // Các tham số
