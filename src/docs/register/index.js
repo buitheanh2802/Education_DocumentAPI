@@ -144,11 +144,11 @@ const register = {
                 },
                 maxLimit : {
                     type : "number",
-                    example : "maxRequestLimit"
+                    // example : "maxRequestLimit"
                 },
                 expired : {
                     type : "number",
-                    example : "seconds"
+                    // example : "seconds"
                 }
             }
         },
