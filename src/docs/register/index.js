@@ -65,6 +65,12 @@ const register = {
                         schema: {
                             $ref: "#/definitions/registerBODY"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
+                    },
+                    "429:LIMITED_REQUEST": {
+                        description: "status: 400 => Quá nhiều request",
+                        schema: {
+                            $ref: "#/definitions/maxLimited"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                        }
                     }
                 }
             }
@@ -122,7 +128,30 @@ const register = {
                     example : false    
                 }
             }
-        }
+        },
+        maxLimited: {            
+            type: "object",       
+            properties: {          
+                message: {               
+                    type: "array",
+                    example : [
+                        'LIMITED_REQUEST'
+                    ]   
+                },
+                status: {
+                    type: "boolean",
+                    example : false    
+                },
+                maxLimit : {
+                    type : "number",
+                    example : "maxRequestLimit"
+                },
+                expired : {
+                    type : "number",
+                    example : "seconds"
+                }
+            }
+        },
     }
 }
 
