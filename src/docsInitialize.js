@@ -1,11 +1,14 @@
 import register from './docs/register';
-import OTP from './docs/OTP'
+import OTP from './docs/OTP';
+import Feedback from './docs/feedback'
 
 export const definitionResponse = {
     ...register.definationResponse,
-    ...OTP.definationResponse
+    ...OTP.definationResponse,
+    ...Feedback.definationResponse
 }
 export const paths = {
     ...register.paths,
-    ...OTP.paths
+    ...OTP.paths,
+    ...Feedback.paths
 }

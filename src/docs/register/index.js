@@ -1,6 +1,6 @@
 const register = {
     paths : {
-        "/register/": {    // Đường dẫn. Kết hợp với host và basePath sẽ thành localhost:3000/api/v1/admin/
+        "/register": {    // Đường dẫn. Kết hợp với host và basePath sẽ thành localhost:3000/api/v1/admin/
             post: {        // Phương thức gửi request: get, post, put, delete
                 tags: ["Authentication"],
                 summary: "Tạo tài khoản user",
