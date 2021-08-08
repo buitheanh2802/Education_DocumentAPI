@@ -1,4 +1,6 @@
-var spec =
+// import { definitions,paths } from './initialize';
+
+var initialize =
 {
     swagger: "2.0",    // Phiên bản Swagger UI
     info: {
@@ -78,72 +80,6 @@ var spec =
                     }
                 }
             }
-        },
-        "/admin/{id}": {
-            get: {
-                tags: ["admin"],
-                summary: "Lấy tài khoản admin theo id",
-                description: "",
-                operationId: "getAdminAccountByID",
-                consumes: ["multipart/form-data"],
-                produces: ["application/json"],
-                parameters: [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "required": "true",
-                        "schema": {
-                            "type": "integer",
-                            "minimum": "1"
-                        },
-                        "description": "id của tài khoản admin"
-                    }
-                ]
-            },
-            put: {
-                tags: ["admin"],
-                summary: "Đổi mật khẩu tài khoản admin theo id",
-                description: "",
-                operationId: "changePasswordAdminAccountByID",
-                consumes: ["multipart/form-data"],
-                produces: ["application/json"],
-                parameters: [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "required": "true",
-                        "schema": {
-                            "type": "integer",    // Kiểu tham số là số nguyên
-                            "minimum": "1"        // Giá trị thấp nhất là 1
-                        },
-                        "description": "id của tài khoản admin"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "password",
-                        "required": "true",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "description": "password mới của tài khoản admin"
-                    }
-                ],
-                responses: {
-                    200: {
-                        description: "đổi mật khẩu thành công"
-                    },
-                },
-                security: [
-                    
-                ]
-            }
-        }
-    },
-    securityDefinitions: {    // Thông tin về api key sử dụng để thực hiện request
-        api_key: {
-            type: "apiKey",      // Thuộc loại api key xác thực
-            name: "api_key",     // Tên trường chứa api key xác thực
-            in: "header",        // API key được để trong phần header của request
         }
     },
     definitions: {            // Thông tin các đối tượng sẽ trả về
@@ -185,3 +121,5 @@ var spec =
         }
     }
 };
+
+window.initialize = initialize;
