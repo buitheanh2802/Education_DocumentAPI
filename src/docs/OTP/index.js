@@ -42,9 +42,15 @@ const OTP = {
                 ],
                 responses: {
                     "200:DONE": {
-                        description: "status: 200 => Gửi OTP thành công",
+                        description: "status: 200 => Xác thực thành công",
                         schema: {
-                            $ref: "#/definitions/send"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                            $ref: "#/definitions/active"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                        }
+                    },
+                    "400:ERROR": {
+                        description: "status: 400 => Xác thực thất bại OTP không hợp lệ !",
+                        schema: {
+                            $ref: "#/definitions/activeError"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
                     },
                 }
@@ -66,16 +72,33 @@ const OTP = {
                 }
             }
         },
-        send : {
+        active : {
             type : "object",
             properties: {           // Các thuộc tính của đối tượng
                 message: {                  // Tên thuộc tính
                     type: "array",
-                    example : "[]"    // Loại dữ liệu là số nguyên
+                    example : [
+                        'ACTIVATED'
+                    ]   // Loại dữ liệu là số nguyên
                 },
                 status: {
                     type: "boolean",
                     example : true     // Loại dữ liệu là chuỗi
+                }
+            }
+        },
+        activeError :{
+            type : "object",
+            properties: {           // Các thuộc tính của đối tượng
+                message: {                  // Tên thuộc tính
+                    type: "array",
+                    example : [
+                        'INVALID_DATA'
+                    ]   // Loại dữ liệu là số nguyên
+                },
+                status: {
+                    type: "boolean",
+                    example : false     // Loại dữ liệu là chuỗi
                 }
             }
         }
