@@ -65,11 +65,17 @@ var spec =
                 ],
                 responses: {
                     200: {
-                        description: "status: 200 CREATED",
+                        description: "status: 200 => Tạo thành công",
                         schema: {
                             $ref: "#/definitions/register200"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
                         }
                     },
+                    400: {
+                        description: "status: 400 => Tạo thất bại",
+                        schema: {
+                            $ref: "#/definitions/register400"           // Dữ liệu trả về là đói tượng admin (tham chiếu với phần definitions ở cuối)
+                        }
+                    }
                 }
             }
         },
@@ -159,6 +165,21 @@ var spec =
                         username : "username",
                         email : "email"
                     }
+                }
+            }
+        },
+        register400: {            
+            type: "object",       
+            properties: {          
+                message: {               
+                    type: "array",
+                    example : [
+                        'ERROR_SAVE'
+                    ]   
+                },
+                status: {
+                    type: "boolean",
+                    example : false    
                 }
             }
         }
